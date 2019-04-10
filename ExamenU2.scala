@@ -52,9 +52,13 @@ val testData = splits(1)
 //Para realizar la predicción usando MLP importamos las librerías del clasificador MLP así como su evaluador.//
 
 /*b. Disene su propia arquitectura con un minimo de tres neuronas de entrada, dos capas en la capa oculta con mas de tres neuronas
-cada una y finalmente dos o mas neuronas en la capa de salida*/
-// La capa de entrada será 5 (5 características), dos nodos escondidos de 4 cada uno y 4 de salida (clases)
-val layers = Array[Int](5, 4, 4, 4)
+cada una y finalmente dos o mas neuronas en la capa de salida*//* La función para calcular los nuevos pesos fue (w<t+1> = w + b(error)(z)) que
+nos ayuda a asignar nuevos pesos para la siguiente iteración, la fórmula para
+calcular el error por predeterminado es un algoritmo de optimización llamado
+L-BFGS usando una limitada cantidad de memoria, se usa para estimación de
+parámetros.*/
+// La capa de entrada será 4 (4 características), dos nodos escondidos de 4 cada uno y 4 de salida (clases)
+val layers = Array[Int](4, 4, 4, 4)
 
 /*c. EXplique detalladamente cada paso del proceso Machine Learning dentro del codigo que desarrolle*/
 // Se crea el entrenador y se asignan los parámetros
@@ -83,9 +87,19 @@ val accuracy = evaluator.evaluate(predictions)
 println("Test Error = " + (1.0 - accuracy))
 
 
-/*d. Explique detalladamente la funcion matematica de entrenamiento que utilizo, con sus propias palabras*/
+//d. Explique detalladamente la funcion matematica de entrenamiento que utilizo, con sus propias palabras//
+/* La función matemática que se implementa de manera predeterminada en los
+nodos intermedios es la función sigmoide (1/1+e^-n), se utiliza como función de
+activación que nos ayuda con datos binarios o múltiples mientras que en los
+nodos de salida se utiliza la función softmax (e^(xi) / sum(e^(zk) )) que nos
+ayuda con la clasificación múltiple así como los cálculos de predicciones para
+las mismas*/
 
-
-/*e. Explique la funcion de error que utilizo para el resultado final*/
+//e. Explique la funcion de error que utilizo para el resultado final//
+/* La función para calcular los nuevos pesos fue (w<t+1> = w + b(error)(z)) que
+nos ayuda a asignar nuevos pesos para la siguiente iteración, la fórmula para
+calcular el error por predeterminado es un algoritmo de optimización llamado
+L-BFGS usando una limitada cantidad de memoria, se usa para estimación de
+parámetros.*/
 
 /*f. Finalmente suba el codigo a github y documente detalladamente su codigo asi como sus resultados*/
