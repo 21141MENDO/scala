@@ -100,6 +100,6 @@ las mismas*/
 nos ayuda a asignar nuevos pesos para la siguiente iteración, la fórmula para
 calcular el error por predeterminado es un algoritmo de optimización llamado
 L-BFGS usando una limitada cantidad de memoria, se usa para estimación de
-parámetros.*/
+parámetros.*/.
 
 /*f. Finalmente suba el codigo a github y documente detalladamente su codigo asi como sus resultados*/
